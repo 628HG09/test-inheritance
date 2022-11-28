@@ -3,9 +3,7 @@ package com.example.relations.controllers;
 import com.example.relations.dtos.VoertuigDto;
 import com.example.relations.services.VoertuigService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class VoertuigController {
@@ -21,4 +19,12 @@ public class VoertuigController {
         VoertuigDto dto1 = voertuigService.addVoertuig(dto);
         return dto1;
     }
+
+//    @PutMapping("/voertuigen/{id}")
+//    public VoertuigDto updateTelevision(@PathVariable("id") Long id, @RequestBody RemoteControllerDto dto) {
+//        remoteControllerService.updateRemoteController(id, dto);
+//        return dto;
+//    }
+
+
 }

@@ -70,4 +70,22 @@ public class RitService {
 
         return dto;
     }
+
+    public void assignBestuurderToRit(Long id, Long bestuurderId) {
+        var optionalRit = ritRepository.findById(id);
+        var optionalBestuurder = bestuurderRepository.findById(bestuurderId);
+
+        if(optionalRit.isPresent() && optionalBestuurder.isPresent()) {
+            var rit = optionalRit.get();
+            var bestuurder = optionalBestuurder.get();
+
+            rit.setBestuurder(bestuurder);
+            ritRepository.save(rit);
+        } else {
+            throw new RecordNotFoundException();
+        }
+    }
+
+
+
 }

@@ -7,10 +7,7 @@ import com.example.relations.services.RitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/ritten")
@@ -29,5 +26,10 @@ public class RitController {
 //        Rit savedRit =  ritService.save(ritDto);
 
        return ResponseEntity.created(null).body(dto);
+    }
+
+    @PutMapping("/{id}/{bestuurderId}")
+    public void assignBestuurderToRit(@PathVariable("id") Long id, @PathVariable("bestuurderId") Long bestuurderId) {
+        ritService.assignBestuurderToRit(id, bestuurderId);
     }
 }
