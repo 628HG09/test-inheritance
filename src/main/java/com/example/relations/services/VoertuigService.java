@@ -1,6 +1,7 @@
 package com.example.relations.services;
 
 import com.example.relations.dtos.VoertuigDto;
+import com.example.relations.exceptions.RecordNotFoundException;
 import com.example.relations.models.Voertuig;
 import com.example.relations.repositories.VoertuigRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,18 @@ public class VoertuigService {
 
         return voertuig;
     }
+    //hier gebleven
+    public void updateVoertuig(Long id, VoertuigDto voertuigDto) {
+        if(!voertuigRepository.existsById(id)) {
+            throw new RecordNotFoundException("No voertuig found");
+        }
+
+        Voertuig storedVoertuig = voertuigRepository.findById(id).orElse(null);
+        storedVoertuig.setId(voertuigDto.getId());
+        storedVoertuig.setModel(voertuigDto.getModel());
+        storedVoertuig.setMerk(voertuigDto.getMerk());
+        voertuigRepository.save(storedVoertuig);
+    }
+
 
 }

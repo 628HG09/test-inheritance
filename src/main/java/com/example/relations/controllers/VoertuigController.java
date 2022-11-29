@@ -20,11 +20,12 @@ public class VoertuigController {
         return dto1;
     }
 
-//    @PutMapping("/voertuigen/{id}")
-//    public VoertuigDto updateTelevision(@PathVariable("id") Long id, @RequestBody RemoteControllerDto dto) {
-//        remoteControllerService.updateRemoteController(id, dto);
-//        return dto;
-//    }
+    @PutMapping("/voertuigen/{id}")
+    public VoertuigDto updateBestuurder(@PathVariable("id") Long id, @RequestBody VoertuigDto dto) {
+        voertuigService.updateVoertuig(id, dto);
+        return dto;
+    }
+
 
 
 }
