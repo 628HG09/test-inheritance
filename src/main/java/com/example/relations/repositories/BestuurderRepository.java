@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BestuurderRepository extends JpaRepository<Bestuurder, Long> {
-    List<Bestuurder> findAllBestuurdersByAchternaamEqualsIgnoreCase(String achternaam);
+//    List<Bestuurder> findAllBestuurdersByAchternaamEqualsIgnoreCase(String achternaam);
 }

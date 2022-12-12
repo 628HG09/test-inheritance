@@ -14,12 +14,14 @@ import java.util.List;
         //  variable declaraties
 //    @NotNull
 //    @Column
-        public String voornaam;
-        public String achternaam;
-        public String gebruikersnaam;
-        public String wachtwoord;
-        public String email;
+        private String voornaam;
+        private String achternaam;
+        private String gebruikersnaam;
+        private String wachtwoord;
+        private String email;
 
+
+        // userclass met hoofdletter?
         @OneToMany(mappedBy = "userClass")
         List<Bestuurder>bestuurders;
 
@@ -80,6 +82,14 @@ import java.util.List;
 
     public List<Passagier> getPassagiers() {
         return passagiers;
+    }
+
+    public void setBestuurders(List<Bestuurder> bestuurders) {
+        this.bestuurders = bestuurders;
+    }
+
+    public void setPassagiers(List<Passagier> passagiers) {
+        this.passagiers = passagiers;
     }
 }
 

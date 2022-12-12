@@ -2,18 +2,17 @@ package com.example.relations.dtos;
 
 public class BestuurderDto {
     Long id;
-    private String voornaam;
-    private String achternaam;
+
+    private String extraKenmerk;
 //deze
     private VoertuigDto voertuigDto;
 
     public BestuurderDto() {
     }
 
-    public BestuurderDto(Long id, String voornaam, String achternaam) {
+    public BestuurderDto(Long id, String extraKenmerk) {
         this.id = id;
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+        this.extraKenmerk = extraKenmerk;
     }
 
     public Long getId() {
@@ -24,20 +23,12 @@ public class BestuurderDto {
         this.id = id;
     }
 
-    public String getVoornaam() {
-        return voornaam;
+    public String getExtraKenmerk() {
+        return extraKenmerk;
     }
 
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
-    }
-
-    public String getAchternaam() {
-        return achternaam;
-    }
-
-    public void setAchternaam(String achternaam) {
-        this.achternaam = achternaam;
+    public void setExtraKenmerk(String extraKenmerk) {
+        this.extraKenmerk = extraKenmerk;
     }
 
     public VoertuigDto getVoertuigDto() {

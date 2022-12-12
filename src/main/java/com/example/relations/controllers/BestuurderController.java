@@ -20,25 +20,26 @@ public class BestuurderController {
         this.bestuurderService = bestuurderService;
     }
 
-    @GetMapping("/bestuurders")
-    public ResponseEntity<List<BestuurderDto>> getAllBestuurders(@RequestParam(value = "achternaam", required = false) Optional<String> achternaam) {
-
-        List<BestuurderDto> dtos;
-
-        if (achternaam.isEmpty()){
-
-            dtos = bestuurderService.getAllBestuurders();
-
-        }
-        else {
-
-            dtos = bestuurderService.getAllBestuurdersByAchternaam(achternaam.get());
-
-        }
-
-        return ResponseEntity.ok().body(dtos);
-
-    }
+    // bestuurder heeft geen achternaam
+//    @GetMapping("/bestuurders")
+//    public ResponseEntity<List<BestuurderDto>> getAllBestuurders(@RequestParam(value = "achternaam", required = false) Optional<String> achternaam) {
+//
+//        List<BestuurderDto> dtos;
+//
+//        if (achternaam.isEmpty()){
+//
+//            dtos = bestuurderService.getAllBestuurders();
+//
+//        }
+//        else {
+//
+//            dtos = bestuurderService.getAllBestuurdersByAchternaam(achternaam.get());
+//
+//        }
+//
+//        return ResponseEntity.ok().body(dtos);
+//
+//    }
 
     @GetMapping("/bestuurders/{id}")
     public ResponseEntity<BestuurderDto> getBestuurder(@PathVariable("id")Long id) {

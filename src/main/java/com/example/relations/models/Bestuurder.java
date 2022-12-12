@@ -11,8 +11,8 @@ public class Bestuurder{
     Long id;
 
     //  variable declaraties
-    private String voornaam;
-    private String achternaam;
+    private String extraKenmerk;
+
 
     @OneToOne
     Voertuig voertuig;
@@ -31,20 +31,12 @@ public class Bestuurder{
         this.id = id;
     }
 
-    public String getVoornaam() {
-        return voornaam;
+    public String getExtraKenmerk() {
+        return extraKenmerk;
     }
 
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
-    }
-
-    public String getAchternaam() {
-        return achternaam;
-    }
-
-    public void setAchternaam(String achternaam) {
-        this.achternaam = achternaam;
+    public void setExtraKenmerk(String extraKenmerk) {
+        this.extraKenmerk = extraKenmerk;
     }
 
     public Voertuig getVoertuig() {

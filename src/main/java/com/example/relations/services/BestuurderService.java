@@ -31,10 +31,10 @@ public class BestuurderService {
         return transferBestuurderListToDtoList(tvList);
     }
 
-    public List<BestuurderDto> getAllBestuurdersByAchternaam(String achternaam) {
-        List<Bestuurder> tvList = bestuurderRepository.findAllBestuurdersByAchternaamEqualsIgnoreCase(achternaam);
-        return transferBestuurderListToDtoList(tvList);
-    }
+//    public List<BestuurderDto> getAllBestuurdersByAchternaam(String achternaam) {
+//        List<Bestuurder> tvList = bestuurderRepository.findAllBestuurdersByAchternaamEqualsIgnoreCase(achternaam);
+//        return transferBestuurderListToDtoList(tvList);
+//    }
 
     public BestuurderDto getBestuurderById(Long id) {
 
@@ -71,8 +71,8 @@ public class BestuurderService {
     public Bestuurder transferToBestuurder(BestuurderDto dto){
         var bestuurder = new Bestuurder();
 
-        bestuurder.setVoornaam(dto.getVoornaam());
-        bestuurder.setAchternaam(dto.getAchternaam());
+        bestuurder.setExtraKenmerk(dto.getExtraKenmerk());
+//        bestuurder.setAchternaam(dto.getAchternaam());
 
         return bestuurder;
     }
@@ -102,8 +102,8 @@ public class BestuurderService {
         BestuurderDto dto = new BestuurderDto();
 
         dto.setId(bestuurder.getId());
-        dto.setVoornaam(bestuurder.getVoornaam());
-        dto.setAchternaam(bestuurder.getAchternaam());
+        dto.setExtraKenmerk(bestuurder.getExtraKenmerk());
+//        dto.setAchternaam(bestuurder.getAchternaam());
 
 //        if(bestuurder.getCiModule() != null){
 //            dto.setCiModuleDto(CIModuleService.transferToDto(bestuurder.getCiModule()));
