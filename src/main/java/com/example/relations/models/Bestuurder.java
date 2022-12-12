@@ -3,7 +3,9 @@ package com.example.relations.models;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity public class Bestuurder {
+@Entity
+@Table(name = "bestuurders")
+public class Bestuurder{
     @Id
     @GeneratedValue
     Long id;
@@ -17,6 +19,9 @@ import java.util.List;
 
     @OneToMany(mappedBy = "bestuurder")
     List<Rit>ritten;
+
+    @ManyToOne
+    UserClass userClass;
 
     public Long getId() {
         return id;
@@ -53,7 +58,16 @@ import java.util.List;
     public List<Rit> getRitten() {
         return ritten;
     }
-//
+
+    public UserClass getUserClass() {
+        return userClass;
+    }
+
+    public void setUserClass(UserClass userClass) {
+        this.userClass = userClass;
+    }
+
+    //
 //    public void setRitten(List<Rit> ritten) {
 //        this.ritten = ritten;
 //    }

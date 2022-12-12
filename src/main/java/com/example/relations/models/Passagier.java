@@ -1,18 +1,21 @@
 package com.example.relations.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity public class Passagier extends User {
-//    @Id
-//    @GeneratedValue
-//    @Column(name = "passagier_id")
-//    Long id;
+@Entity
+@Table(name = "passagiers")
+public class Passagier{
+    @Id
+    @GeneratedValue
+    @Column(name = "passagier_id")
+    Long id;
 
-    @Column(name = "ritverzoek")
+    @Column(name = "ritverzoek",
+    nullable = false)
     private String ritVerzoek;
+
+    @ManyToOne
+    UserClass userClass;
 
     public String getRitVerzoek() {
         return ritVerzoek;
@@ -20,5 +23,21 @@ import javax.persistence.Id;
 
     public void setRitVerzoek(String ritVerzoek) {
         this.ritVerzoek = ritVerzoek;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public UserClass getUserClass() {
+        return userClass;
+    }
+
+    public void setUserClass(UserClass userClass) {
+        this.userClass = userClass;
     }
 }
